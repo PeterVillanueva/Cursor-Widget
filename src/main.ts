@@ -248,6 +248,9 @@ function registerIpc(): void {
   ipcMain.handle("overlay:open-dashboard", async () => {
     await shell.openExternal(DASHBOARD_SPENDING_URL);
   });
+  ipcMain.handle("overlay:quit", () => {
+    app.quit();
+  });
 }
 
 function startPolling(): void {

@@ -37,6 +37,7 @@ export interface OverlayApi {
   getState: () => Promise<OverlayState>;
   refresh: () => Promise<void>;
   openDashboard: () => Promise<void>;
+  quit: () => Promise<void>;
   onState: (handler: (state: OverlayState) => void) => () => void;
 }
 

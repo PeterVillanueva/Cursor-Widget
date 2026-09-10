@@ -91,6 +91,9 @@ body {
 }
 
 .header-actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
   -webkit-app-region: no-drag;
 }
 
@@ -109,6 +112,11 @@ body {
 .icon-button:hover {
   color: var(--text);
   background: rgba(255, 255, 255, 0.08);
+}
+
+.icon-button.close:hover {
+  color: #ffd0d3;
+  background: rgba(255, 107, 115, 0.18);
 }
 
 .icon-button svg {

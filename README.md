@@ -39,12 +39,24 @@ Bars turn amber near the limit and red when you’re critical or exhausted — s
 - **Auto refresh** — polls every 45 seconds (manual refresh in the header / tray)
 - **System tray** — hide/show, open spending dashboard, start with Windows, quit
 - **Limit banner** — surfaces “You’ve hit your usage limit” when either pool is maxed
+- **Close (×)** — quits the overlay app entirely (same as tray → Quit)
 
 ---
 
 ## Quick start
 
 **Requirements:** Node.js **22+**, Cursor signed in on this machine.
+
+### One-click (Windows)
+
+| File | Use when |
+| --- | --- |
+| **`Launch Cursor Usage.vbs`** | Preferred — double-click, no console window |
+| **`Launch Cursor Usage.bat`** | Same launch with a visible console (useful on first install) |
+
+First run installs dependencies if needed, builds, then opens the overlay. You can pin either file to the taskbar / Start via a shortcut.
+
+### From a terminal
 
 ```bash
 cd C:\Users\Peter\Cursor-widget
@@ -90,7 +102,7 @@ No Cursor password is stored by this app; it only uses the token already present
 | Start with Windows | Login item for the overlay |
 | Quit | Exit the app |
 
-Click the footer (**Resets in … · Updated …**) to open the spending dashboard as well.
+Use the **×** button in the overlay header to terminate the app. Click the footer (**Resets in … · Updated …**) to open the spending dashboard.
 
 ---
 

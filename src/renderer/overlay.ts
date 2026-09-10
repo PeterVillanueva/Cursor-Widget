@@ -27,6 +27,7 @@ const card = el<HTMLElement>("card");
 const plan = el<HTMLElement>("plan");
 const banner = el<HTMLElement>("banner");
 const refreshButton = el<HTMLButtonElement>("refresh");
+const closeButton = el<HTMLButtonElement>("close");
 const cursorPercent = el<HTMLElement>("cursor-percent");
 const cursorFill = el<HTMLElement>("cursor-fill");
 const cursorRemaining = el<HTMLElement>("cursor-remaining");
@@ -166,6 +167,10 @@ function boot(): void {
 
   refreshButton.addEventListener("click", () => {
     void refresh();
+  });
+
+  closeButton.addEventListener("click", () => {
+    void api.quit();
   });
 
   const meta = document.querySelector(".meta");
