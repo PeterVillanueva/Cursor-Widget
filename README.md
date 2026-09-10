@@ -59,7 +59,8 @@ First run installs dependencies if needed, builds, then opens the overlay. You c
 ### From a terminal
 
 ```bash
-cd C:\Users\Peter\Cursor-widget
+git clone <your-fork-or-repo-url>
+cd Cursor-widget
 npm install
 npm start
 ```
@@ -74,6 +75,22 @@ npm start
 
 ---
 
+## Privacy — whose account is shown?
+
+**Only the Cursor account signed in on that machine.** Cloning this repo does **not** connect to the author’s (or anyone else’s) Cursor / Pro usage.
+
+| What | Where it comes from |
+| --- | --- |
+| Auth | Local `%APPDATA%\Cursor\User\globalStorage\state.vscdb` (`cursorAuth/accessToken`) |
+| Plan / bars | Cursor’s API, called with **that** local Bearer token |
+| Saved UI settings | Local Electron `userData` (position, opacity, login item) — never tokens |
+
+There is **no** hardcoded token, email, password, or account ID in this repository. Tokens are never written to the project folder or committed to git. Probe helpers that touch the local DB are gitignored (`scripts/probe-*.mjs`).
+
+If Cursor is not installed or not signed in, the overlay errors out instead of falling back to another account.
+
+---
+
 ## How it works
 
 ```text
@@ -83,12 +100,12 @@ npm start
 └─────────────────┘     └──────────────────────┘     └─────────────────┘
 ```
 
-1. Copies your Cursor `state.vscdb` access token (read-only).
-2. Calls `GetCurrentPeriodUsage` / `GetPlanInfo` on `api2.cursor.sh`.
+1. Copies **this machine’s** Cursor `state.vscdb` access token (read-only temp copy, then deleted).
+2. Calls `GetCurrentPeriodUsage` / `GetPlanInfo` on `api2.cursor.sh` with that token only.
 3. Maps `autoPercentUsed` → **Cursor Models**, `apiPercentUsed` → **Other Models**.
 4. Renders the glass overlay and refreshes on an interval.
 
-No Cursor password is stored by this app; it only uses the token already present from your signed-in Cursor install.
+No Cursor password is stored by this app. It never phones home to a third-party server for identity — only Cursor’s public API as the local user.
 
 ---
 
