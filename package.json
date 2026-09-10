@@ -1,0 +1,29 @@
+{
+  "name": "cursor-usage-overlay",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Always-on-top overlay for Cursor Pro usage: Cursor Models and Other Models bars.",
+  "type": "module",
+  "main": "dist/main.js",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "start": "npm run build && electron .",
+    "start:demo": "npm run build && electron . -- --demo",
+    "dev": "npm run start",
+    "preview": "npm run build && node scripts/preview-server.mjs",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "probe": "node scripts/probe-usage.mjs",
+    "probe:auth": "node scripts/probe-auth.mjs"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.29",
+    "electron": "^36.4.0",
+    "esbuild": "^0.25.5",
+    "typescript": "^5.8.3",
+    "vitest": "^3.2.1"
+  }
+}

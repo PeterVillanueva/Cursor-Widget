@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; style-src 'self'; img-src 'self' data:; script-src 'self'"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cursor Usage</title>
+    <link rel="stylesheet" href="./overlay.css" />
+  </head>
+  <body>
+    <article class="card" id="card">
+      <header class="header">
+        <div class="title-row">
+          <p class="kicker">Cursor Usage</p>
+          <span class="plan" id="plan">PRO</span>
+        </div>
+        <div class="header-actions">
+          <button class="icon-button" id="refresh" type="button" title="Refresh">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M21 12a9 9 0 1 1-2.25-5.75M21 4v5h-5"
+              />
+            </svg>
+          </button>
+        </div>
+      </header>
+
+      <p class="banner hidden" id="banner"></p>
+
+      <section class="meters">
+        <div class="meter" data-meter="cursor">
+          <div class="meter-head">
+            <span class="meter-label">Cursor Models</span>
+            <span class="meter-percent" id="cursor-percent">—</span>
+          </div>
+          <div class="track" aria-hidden="true">
+            <div class="fill" id="cursor-fill"></div>
+          </div>
+          <p class="remaining" id="cursor-remaining">—</p>
+        </div>
+
+        <div class="meter" data-meter="other">
+          <div class="meter-head">
+            <span class="meter-label">Other Models</span>
+            <span class="meter-percent" id="other-percent">—</span>
+          </div>
+          <div class="track" aria-hidden="true">
+            <div class="fill" id="other-fill"></div>
+          </div>
+          <p class="remaining" id="other-remaining">—</p>
+        </div>
+      </section>
+
+      <footer class="meta">
+        <span id="resets">Resets in —</span>
+        <span class="dot">•</span>
+        <span id="updated">Updated —</span>
+      </footer>
+    </article>
+    <script src="./overlay.js"></script>
+  </body>
+</html>
